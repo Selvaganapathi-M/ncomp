@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/local/bin/usbmon
+Hidden=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=usbmon
+Name=usbmon
+Comment[en_US]=USB Detection
+Comment=USB Detection

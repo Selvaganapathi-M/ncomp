@@ -1,0 +1,38 @@
+
+I have developed this applicatin for monitoring USB devices connected and removed from the system.
+This is GTK based application so system need GTK3 depend libs.And Mainly developed for ubuntu platform. 
+Also need libusb and libudev lib for getting PID,VID,MANUFACTURER,PRODUCT.
+
+Compile and run the application by below prcedure.
+
+This project is added advantage of autorun on startup with ubuntu system.All debian system 
+can work.GTK lib and Gnome environment is need.
+
+File <usbmon.desktop>            
+[Desktop Entry]
+Type=Application
+Exec=/usr/local/bin/usbmon
+Hidden=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=usbmon
+Name=usbmon
+Comment[en_US]=USB Detection
+Comment=USB Detection
+
+For AutoRun on startup i have added usbmon.desktop file.
+By below procedure to get it work.
+
+
+
+Compiling usbmon.c file:
+$g++ usbmon.c -o usbmon `pkg-config --cflags --libs gtk+-3.0` -ludev
+
+copy usbmon executable file to /usr/local/bin/usbmon
+$sudo cp usbmon /usr/local/bin/usbmon
+
+Autostart app on startup
+copy usbmon.desktop into <home>/.config/usbmon.desktop
+$cp usbmon.desktop ~/.config/autostart/usbmon.desktop
+
+Restart the system:
+$sudo init 6

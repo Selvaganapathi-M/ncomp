@@ -1,0 +1,52 @@
+
+I have developed this applicatin for monitoring USB devices connected and removed from the system.
+This is GTK based application so system need GTK3 depend libs.And Mainly developed for ubuntu platform. 
+Also need libusb and libudev lib for getting PID,VID,MANUFACTURER,PRODUCT.
+
+This project is given like installable package by below procedure.
+
+So simply run the .deb package and get it run.
+
+
+
+
+File <usbmon.desktop>            
+[Desktop Entry]
+Type=Application
+Exec=/usr/local/bin/usbmon
+Hidden=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=usbmon
+Name=usbmon
+Comment[en_US]=USB Detection
+Comment=USB Detection
+
+
+
+Compiling usbmon.c file:
+$g++ usbmon.c -o usbmon `pkg-config --cflags --libs gtk+-3.0` -ludev
+
+mkdir usbmon/usr/local/bin/
+copy executable usbmon file to above folder.
+ 
+mkdir usbmon/DEBIAN
+create file 'control' and 'postinst'
+
+file 'control'
+Package: usbmon
+Version: 1.0-1
+Section: base
+Priority: optional
+Architecture: all
+Maintainer: Selva <Selva.ec26@gmail.com>
+Description: usbmon Deb Test
+
+file 'postinst'
+cp ../usbmon.desktop ~/.config/autostart/usbmon.desktop
+
+Build dpkg package:
+from above dir,
+$dpkg-deb --build usbmon
+
+Install dpkg package:
+$sudo dpkg -i usbmon.deb

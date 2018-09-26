@@ -1,0 +1,13 @@
+
+I have developed this applicatin for monitoring USB devices connected and removed from the system.
+This is GTK based application so system need GTK3 depend libs.And Mainly developed for ubuntu platform. 
+Also need libusb and libudev lib for getting PID,VID,MANUFACTURER,PRODUCT.
+
+Compile and run the application by below prcedure.
+
+gtk cpp build
+$g++ usbmon.c -o usbmon `pkg-config --cflags --libs gtk+-3.0` -ludev
+
+Run usbmonitor
+$./usbmon
+

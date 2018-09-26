@@ -1,0 +1,7 @@
+Package: usbmon
+Version: 1.0-1
+Section: base
+Priority: optional
+Architecture: all
+Maintainer: Selva <Selva.ec26@gmail.com>
+Description: usbmon Deb Test
